@@ -26,7 +26,7 @@ public class countHoles2 {
         result = solution.countHoles(array);
 		System.out.println(result);
 		
-        array = 1234;
+        array = 4;
         result = solution.countHoles(array);
 		System.out.println(result);
 		

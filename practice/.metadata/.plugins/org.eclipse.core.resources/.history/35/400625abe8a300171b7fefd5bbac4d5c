@@ -1,0 +1,57 @@
+package IXL;
+
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+public class Mode {
+	public int getMin(int[] array){
+		if(array == null || array.length == 0){
+			return 0;
+		}
+		int max = 0;
+		Map<Integer , Integer> mapfre = new HashMap<>();
+		Map<Integer , Integer> mapstart = new HashMap<>();
+		Set<Integer> set = new HashSet<Integer>();
+		for(int i = 0 ; i < array.length ; i++){
+			if(!mapstart.containsKey(array[i])){
+				mapstart.put(array[i] , i);
+				mapfre.put(array[i] , 1);
+			}else{
+				mapfre.put(array[i], mapfre.get(array[i]) + 1);
+			}
+			max = Math.max(max, mapfre.get(array[i]));
+		}
+		for(Map.Entry<Integer, Integer> entry : mapfre.entrySet()){
+			if(entry.getValue() == max){
+				set.add(entry.getKey());
+			}
+		}
+		
+		int length = Integer.MAX_VALUE;
+		for(int i = array.length - 1 ; i >= 0 ; i--){
+			if(set.contains(array[i])){
+				length = Math.min(length, i - mapstart.get(array[i]) + 1);
+				set.remove(array[i]);
+			}
+		}
+		return length;
+	}
+	public static void main(String[] args) {
+		Mode solution = new Mode();
+       
+        int result;
+        int[] array = new int[]{1 , 4 ,3 , 3 , 4 , 2 , 1};
+        result = solution.getMin(array);
+        System.out.println(result);
+      
+
+        
+
+	}
+	
+	
+}
