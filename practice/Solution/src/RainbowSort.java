@@ -3,22 +3,22 @@ import java.util.Arrays;
 public class RainbowSort {
 	public int[] rainbowSort(int[] array) {
 		// Write your solution here.
-		if (array == null || array.length <= 1) {
+		if(array == null || array.length <= 1){
 			return array;
 		}
 		int neg = 0;
 		int zero = 0;
 		int one = array.length - 1;
-		while (zero <= one) {
-			if (array[zero] == -1) {
-				swap(array, neg, zero);
+		while(zero <= one){
+			if(array[zero] == -1){
+				swap(array , neg , zero);
 				neg++;
 				zero++;
-			} else if (array[zero] == 1) {
-				swap(array, zero, one);
-				one--;
-			} else {
+			}else if(array[zero] == 0){
 				zero++;
+			}else{
+				swap(array , zero , one);
+				one--;
 			}
 		}
 		return array;

@@ -3,49 +3,45 @@ import java.util.Arrays;
 public class QuickSort {
 	public int[] quickSort(int[] array) {
 		// Write your solution here
-		if (array == null || array.length <= 1) {
+		if(array == null || array.length <= 1){
 			return array;
 		}
-		quickSort(array, 0, array.length - 1);
+		quicksort(array , 0 , array.length - 1);
 		return array;
 	}
-
-	private void quickSort(int[] array, int left, int right) {
-		if (left >= right) {
+	private void quicksort(int[] array , int left , int right){
+		if(left >= right){
 			return;
 		}
-		int pivoPos = Partition(array, left, right);
-		quickSort(array, left, pivoPos - 1);
-		quickSort(array, pivoPos + 1, right);
+		int pivo = Partition(array , left , right);
+		quicksort(array , left , pivo - 1);
+		quicksort(array , pivo + 1 , right);
 	}
-
-	private int Partition(int[] array, int left, int right) {
-		int pivoindex = Pivo(left, right);
-		int value = array[pivoindex];
-		swap(array, pivoindex, right);
+	private int Partition(int[] array , int left , int right){
+		int pivoindex = getIndex(left , right);
+		int mid = array[pivoindex];
+		swap(array , pivoindex , right);
 		int leftBound = left;
 		int rightBound = right - 1;
-		while (leftBound <= rightBound) {
-			if (array[leftBound] <= value) {
+		while(leftBound <= rightBound){
+			if(array[leftBound] <= mid){
 				leftBound++;
-			} else if (array[rightBound] > value) {
+			}else if(array[rightBound] > mid){
 				rightBound--;
-			} else {
-				swap(array, leftBound++, rightBound--);
+			}else{
+				swap(array , leftBound++ , rightBound--);
 			}
 		}
-		swap(array, leftBound, right);
+		swap(array , leftBound , right);
 		return leftBound;
 	}
-
-	private int Pivo(int left, int right) {
-		return left + (int) (Math.random() * (right - left + 1));
-	}
-
-	private void swap(int[] array, int i, int j) {
+	private void swap(int[] array , int i , int j){
 		int temp = array[i];
 		array[i] = array[j];
 		array[j] = temp;
+	}
+	private int getIndex(int left , int right){
+		return left + (int)(Math.random()*(right - left + 1));
 	}
 
 	public static void main(String[] args) {

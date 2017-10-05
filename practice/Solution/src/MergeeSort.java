@@ -3,41 +3,37 @@ import java.util.Arrays;
 public class MergeeSort {
 	public int[] mergeSort(int[] array) {
 		// Write your solution here.
-		if (array == null || array.length <= 1) {
+		if(array == null || array.length <= 1){
 			return array;
 		}
 		int[] helper = new int[array.length];
-		mergesort(array, helper, 0, array.length - 1);
+		mergeSort(array , helper , 0 , array.length - 1);
 		return array;
 	}
-
-	private void mergesort(int[] array, int[] helper, int left, int right) {
-		if (left >= right) {
+	private void mergeSort(int[] array , int[] helper , int left , int right){
+		if(left >= right){
 			return;
 		}
 		int mid = left + (right - left) / 2;
-		mergesort(array, helper, left, mid);
-		mergesort(array, helper, mid + 1, right);
-		merge(array, helper, left, mid, right);
+		mergeSort(array , helper , left , mid);
+		mergeSort(array , helper , mid + 1 , right);
+		merge(array , helper , left , mid , right);
 	}
-
-	private void merge(int[] array, int[] helper, int left, int mid, int right) {
-
-		int leftindex = left;
-		int rightindex = mid + 1;
-		for (int i = left; i <= right; i++) {
+	private void merge(int[] array , int[] helper , int left , int mid , int right){
+		for(int i = left ; i <= right ; i++){
 			helper[i] = array[i];
 		}
-		while (leftindex <= mid && rightindex <= right) {
-			if (helper[leftindex] <= helper[rightindex]) {
+		int leftindex = left;
+		int rightindex = mid + 1;
+		while(leftindex <= mid && rightindex <= right){
+			if(helper[leftindex] <= helper[rightindex]){
 				array[left++] = helper[leftindex++];
-			} else {
+			}else{
 				array[left++] = helper[rightindex++];
 			}
 		}
-		while (leftindex <= mid) {
+		while(leftindex <= mid){
 			array[left++] = helper[leftindex++];
-
 		}
 	}
 
