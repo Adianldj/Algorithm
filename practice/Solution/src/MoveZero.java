@@ -47,7 +47,7 @@ public class MoveZero {
 		array = new int[] { 2, 4, 1, 5, 3, 6 };
 		array = solution.moveZero(array);
 		System.out.println(Arrays.toString(array));
-
+        System.out.println((int)(-5.5));
 	}
 
 }

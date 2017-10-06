@@ -7,9 +7,6 @@ public class Nodigit {
 		
 	System.out.println((int)(-5.5));
 	}
-  public void main(String[] args){
-	  Nodigit result = new Nodigit();
-	  result.solution("s");
-  }
+  
 }
 
