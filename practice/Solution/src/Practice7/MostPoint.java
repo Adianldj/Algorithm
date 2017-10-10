@@ -16,10 +16,10 @@ public class MostPoint {
 				Point temp = points[j];
 				if(i == j){
 					continue;
-				}else if(temp.x == seed.x && temp.y == seed.y){
+				}else  if(seed.x == temp.x && seed.y == temp.y){
 					same++;
-				}else if(temp.x == seed.x){
-					same++;
+				}else if(seed.x == temp.x){
+					samex++;
 				}else{
 					Double k = (seed.y - temp.y + 0.0) / (seed.x - temp.x);
 					if(!map.containsKey(k)){
@@ -29,10 +29,8 @@ public class MostPoint {
 					}
 					most = Math.max(most , map.get(k));
 				}
-			
 			}
-			int max = Math.max(samex , most) + same;
-			result = Math.max(max , result);
+			result = Math.max(result , Math.max(samex , most) + same);
 		}
 		return result;
 	}
