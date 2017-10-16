@@ -7,7 +7,7 @@ import java.util.stream.Collectors;
 
 public class Permutations {
 	public List<List<Integer>> permute(int[] nums){
-		List<List<Integer>> result = new ArrayList<ArrayList<Integer>>();
+		List<List<Integer>> result = new ArrayList<List<Integer>>();
 		
 		if(nums == null){
 			return result;
@@ -18,7 +18,7 @@ public class Permutations {
 	private void helper(List<List<Integer>> result , int[] nums , int index){
 		if(index == nums.length - 1){
 			
-			result.add(new ArrayList<>(Arrays.asList(nums)));
+			result.add(Arrays.stream(nums).boxed().collect(Collectors.toList()));
 			return;
 		}
 		for(int i = index ; i < nums.length ; i++){

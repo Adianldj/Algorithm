@@ -18,6 +18,8 @@ public class ValidParentheses {
 				stack.pollFirst();
 			}else if(!stack.isEmpty() && s.charAt(i) == '}' && stack.peekFirst() == '{'){
 				stack.pollFirst();
+			}else{
+				return false;
 			}
 		}
 		return stack.isEmpty();
