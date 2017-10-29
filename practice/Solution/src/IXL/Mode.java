@@ -13,19 +13,19 @@ public class Mode {
 			return 0;
 		}
 		int max = 0;
-		Map<Integer , Integer> mapFre = new HashMap<>();
+		Map<Integer , Integer> mapFrequency = new HashMap<>();
 		Map<Integer , Integer> mapStart = new HashMap<>();
 		Set<Integer> set = new HashSet<Integer>();
 		for(int i = 0 ; i < arr.length ; i++){
 			if(!mapStart.containsKey(arr[i])){
 				mapStart.put(arr[i] , i);
-				mapFre.put(arr[i] , 1);
+				mapFrequency.put(arr[i] , 1);
 			}else{
-				mapFre.put(arr[i], mapFre.get(arr[i]) + 1);
+				mapFrequency.put(arr[i], mapFrequency.get(arr[i]) + 1);
 			}
-			max = Math.max(max, mapFre.get(arr[i]));
+			max = Math.max(max, mapFrequency.get(arr[i]));
 		}
-		for(Map.Entry<Integer, Integer> entry : mapFre.entrySet()){
+		for(Map.Entry<Integer, Integer> entry : mapFrequency.entrySet()){
 			if(entry.getValue() == max){
 				set.add(entry.getKey());
 			}
