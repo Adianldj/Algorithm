@@ -14,7 +14,7 @@ public class cloneGraph {
 		UndirectedGraphNode clone = new UndirectedGraphNode(node.label);
 		map.put(node.label, clone);
 		for(UndirectedGraphNode neighbor : node.neighbors){
-			clone.neighbors.add(neighbor);
+			clone.neighbors.add(copy(neighbor));
 		}
 		return clone;
 	}
