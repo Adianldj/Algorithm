@@ -1,0 +1,5 @@
+package MyDS;
+
+public interface MyDS {
+
+}

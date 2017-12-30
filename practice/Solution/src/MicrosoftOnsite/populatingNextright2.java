@@ -33,7 +33,7 @@ public class populatingNextright2 {
 				 }
 				 root = root.next;
 			 }
-			 cur = tempNode.next;
+			 root = tempNode.next;
 			 tempNode.next = null;
 		 }
 	    }
