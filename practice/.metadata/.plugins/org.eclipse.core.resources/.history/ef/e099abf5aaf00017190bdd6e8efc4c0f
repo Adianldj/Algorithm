@@ -36,7 +36,7 @@ class Solution {
             if(e1.getValue() == e2.getValue()){
                 return e2.getKey().compareTo(e1.getKey());
             }
-            return e1.getValue() < e2.getValue() ? -1 : 1;
+            return e1.getValue() < e2.getValue() ? -1 : 1
         }
     }
 }

@@ -37,5 +37,5 @@ public class basicCalculator {
 	    }
 	    if(number != 0) result += sign * number;
 	    return result;
-	}.
+	}
 }
