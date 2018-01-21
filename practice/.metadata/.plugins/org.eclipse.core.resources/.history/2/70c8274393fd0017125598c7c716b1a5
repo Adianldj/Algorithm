@@ -1,0 +1,32 @@
+package BloombergOnsite;
+
+import Tree.TreeNode;
+
+public class secondLargestBST {
+	private int second(TreeNode root){
+		if(root == null){
+			return -1;
+		}
+		int secondMax;
+		TreeNode pre = root;
+		TreeNode cur = root;
+		while(cur.right != null){
+			pre = cur;
+			cur = cur.right;
+		}
+		if(cur.left != null){
+			cur = cur.left;
+			while(cur.right != null){
+				cur = cur.right;
+			}
+			secondMax = cur.key;
+		} else {
+			if(cur == root && pre == root){
+				secondMax = Integer.MIN_VALUE;
+			} else {
+				secondMax = pre.key;
+			}
+		}
+		return secondMax;
+	}
+}
