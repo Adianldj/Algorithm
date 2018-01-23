@@ -11,7 +11,7 @@ public class resort {
 		stack.push(nums[0]);
 		for(int i = 1 ; i < nums.length ; i++){
 			int next = nums[i];
-			if(stack.isEmpty()){
+			if(!stack.isEmpty()){
 				int element = stack.pop();
 				while(element < next){
 					System.out.println(element + "->" + next);

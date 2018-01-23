@@ -1,5 +1,7 @@
 package BloombergOnsite;
 
+import java.util.Set;
+
 public class mostPeopleYear {
 	public static int livingPeople(Set<Person> people) {
 	    final int[] births = new int[300];
